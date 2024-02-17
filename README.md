@@ -1,4 +1,4 @@
-# Project: Infrastructure Administration Labs
+# Project: Administrating of Information Systems Labs
 
 This repository contains the source code for completing laboratory assignments related to the administration of information systems. The project is structured into two main directories: `ansible` and `terraform`, each dedicated to a specific technology stack.
 
