@@ -1,0 +1,24 @@
+- name: Change hostname on Ubuntu VM
+  hosts: ubuntu
+  become: yes
+  tasks:
+    - name: Update hostname in /etc/hostname
+      lineinfile:
+        path: /etc/hostname
+        regexp: '^{{ ansible_hostname }}$'
+        line: 'anatolii-shokha-lab2'
+      register: hostname_changed_hostname
+      changed_when: hostname_changed_hostname.changed
+
+    - name: Update hostname in /etc/hosts
+      lineinfile:
+        path: /etc/hosts
+        regexp: '^127\.0\.1\.1.*'
+        line: '127.0.1.1  anatolii-shokha-lab2'
+      when: hostname_changed_hostname.changed
+
+    - name: Reboot system
+      shell: shutdown -r now
+      async: 1
+      poll: 0
+      when: hostname_changed_hostname.changed
