@@ -1,2 +1,7 @@
 /ansible/credentials.json
 /ansible/google_cloud.yml
+/terraform/credentials.json
+/terraform/.terraform
+/terraform/.terraform.lock.hcl
+/terraform/terraform.tfstate.backup
+/terraform/terraform.tfstate
